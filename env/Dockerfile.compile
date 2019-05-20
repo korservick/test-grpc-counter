@@ -1,0 +1,7 @@
+# Compile stage
+FROM korservick/grpc_counter:build
+
+COPY src .
+COPY pb pb
+RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o /counter .
+

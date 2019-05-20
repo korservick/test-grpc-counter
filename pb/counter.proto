@@ -1,0 +1,20 @@
+syntax = "proto3";
+package counter;
+
+import "google/protobuf/empty.proto";
+
+service Incrementor {
+    rpc GetNumber (google.protobuf.Empty) returns (CurrentNumber);
+    rpc IncrementNumber (google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc SetSettings (Settings) returns (google.protobuf.Empty);
+}
+
+message CurrentNumber {
+    uint32 number = 1;
+}
+
+message Settings {
+    uint32 increment = 1;
+    uint32 maximum_number = 2;
+}
+
